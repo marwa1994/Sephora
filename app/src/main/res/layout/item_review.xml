@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="reviewUiModel"
+            type="com.marwa.sephora.ui.model.ReviewUiModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/review"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:paddingHorizontal="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/review_description"
+        android:layout_width="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="match_parent"
+        android:text="@{reviewUiModel.description}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="top" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:max="5"
+        android:numStars="5"
+        android:rating="@{reviewUiModel.rating}"
+        android:progressBackgroundTint="#a8a8a8"
+        android:progressTint="#FFD700"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:stepSize="0.2"
+        android:theme="@style/Widget.AppCompat.RatingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
